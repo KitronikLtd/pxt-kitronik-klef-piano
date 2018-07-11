@@ -1,0 +1,17 @@
+{
+    "name": "pxt-kitronik-klef-piano",
+    "version": "0.0.1",
+    "description": "Blocks for driving the Kitronik micro:bit Piano",
+    "license": "MIT",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "ubit_piano.ts"
+    ],
+    "testFiles": [
+        "tests.ts"
+    ],
+    "public": true
+}
