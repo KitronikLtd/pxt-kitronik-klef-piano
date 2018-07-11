@@ -1,7 +1,7 @@
 /**
  * Kitronik :KLEF Piano for BBC micro:bit MakeCode Package 
  */
-//% weight=100 color=#00A654 icon="\uf001" block="Kitronik Piano"
+//% weight=100 color=#00A654 icon="\uf001" block=":KLEF Piano"
 namespace Kitronik_Piano {
 
     //Constant Variables
@@ -131,6 +131,7 @@ namespace Kitronik_Piano {
     }
 
     //Function to read the Key Press Registers
+    //Return value is a combination of both registers (3 and 4) which links with the values in 'PianoKeyAddresses'
     function readKeyPress(): number {
         buff[0] = 2
         pins.i2cWriteBuffer(CHIP_ADDRESS, buff, false)
@@ -160,10 +161,9 @@ namespace Kitronik_Piano {
     }
 
     /**
-     * Determines if a piano key is pressed and returns boolean
+     * Determines if a piano key is pressed and returns a true or false output
      * @param key press to be checked
      */
-    //% subcategory=More
     //% blockId="key_is_pressed" block="key %key|is pressed"
     //% key.fieldEditor="gridpicker" key.fieldOptions.columns=4
     //% weight=95 blockGap=8
@@ -182,16 +182,18 @@ namespace Kitronik_Piano {
     }
 
     /**
-     * Check micro:bit Piano key press and play linked note
+     * Check for a key press and play a linked note
+     * Length of tone can be set using 'set_note_length' block
      */
+    //% subcategory=More
     //% blockId="full_piano_play" block="play note on piano key press" icon="\uf001"
     //% weight=91 blockGap=8
     export function fullPianoPlay(): void {
+        //Checks whether the capacitive touch chip has been setup yet, if not, runs the initPiano function
         if (initialisedFlag == 0) {
             initPiano()
         }
         if (pins.digitalReadPin(DigitalPin.P1) == 0) {
-        	basic.clearScreen()
             buff[0] = 2
             pins.i2cWriteBuffer(CHIP_ADDRESS, buff, false)
             buff3 = pins.i2cReadBuffer(CHIP_ADDRESS, 5, false)
@@ -206,8 +208,10 @@ namespace Kitronik_Piano {
             buff4 = pins.i2cReadBuffer(CHIP_ADDRESS, 1, false)
 
             if (buff[0] == 0x01) {
-                basic.showArrow(ArrowNames.North)
-                octaveFlag += 1
+                //Switch piano to output a higher pitch set of notes, if upper limit not already reached
+                if (octaveFlag != 1) {
+                    octaveFlag += 1
+                }
             }
             else if (buff[0] == 0x02) {
                 //C#
@@ -309,8 +313,10 @@ namespace Kitronik_Piano {
             }
             
             if (buff4[0] == 0x01) {
-                basic.showArrow(ArrowNames.South)
-                octaveFlag -= 1
+                //Switch piano to output a lower pitch set of notes, if lower limit not already reached
+                if (octaveFlag != -1) {
+                    octaveFlag -= 1
+                }
             }
             else if (buff4[0] == 0x02) {
                 //C
@@ -396,7 +402,6 @@ namespace Kitronik_Piano {
                         break;
                 }
             }
-            basic.pause(100)
         }
     }
 }
