@@ -49,6 +49,8 @@ namespace Kitronik_Piano {
     let buff2 = pins.createBuffer(2);
     let buff3 = pins.createBuffer(5);
     let buff4 = pins.createBuffer(1);
+    let keySensitivity = 8;
+    let keyNoiseThreshold = 5;
     let keyRegValue = 0x0000;
     let initialisedFlag = 0;
     let octaveFlag = 0;
@@ -70,7 +72,7 @@ namespace Kitronik_Piano {
 
             //Change sensitivity (burst length) of keys 0-14 to 8
             buff2[0] = 54
-            buff2[1] = 8
+            buff2[1] = keySensitivity
             pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
             buff2[0] = 55
             pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
@@ -108,7 +110,7 @@ namespace Kitronik_Piano {
 
             //Set Burst Repetition to 5
             buff2[0] = 13
-            buff2[1] = 5
+            buff2[1] = keyNoiseThreshold
             pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
 
             //Send calibration command
@@ -130,6 +132,32 @@ namespace Kitronik_Piano {
         initialisedFlag = 1
     }
 
+    /**
+     * Set sensitivity of capacitive touch keys, then initialise the IC.
+     * A higher value increases the sensitivity (values can be in the range 1 - 32).
+     * @param sensitivity is the number to set the burst length for the AT42QT2160 Capacitive Touch IC eg: 8
+     */
+    //% blockId="kitronik_set_key_sensitivity" block="set key sensitivity to %sensitivity" icon="\uf001"
+    //% weight=95 blockGap=8
+    //% sensitivity.min=1 sensitivity.max=32
+    export function setKeySensitivity(sensitivity: number): void {
+        keySensitivity = sensitivity
+        initPiano()
+    }
+
+    /**
+     * Set the noise threshold of capacitive touch keys, then initialise the IC.
+     * A higher value enables the piano to be used in areas with more electrical noise (values can be in the range 1 - 63).
+     * @param noiseThreshold is the number to set the burst repetition for the AT42QT2160 Capacitive Touch IC eg: 5
+     */
+    //% blockId="kitronik_set_noise_threshold" block="set noise threshold to %noiseFactor" icon="\uf001"
+    //% weight=90 blockGap=8
+    //% noiseThreshold.min=1 noiseThreshold.max=63
+    export function setKeyNoiseThreshold(noiseThreshold: number): void {
+        keyNoiseThreshold = noiseThreshold
+        initPiano()
+    }
+
     //Function to read the Key Press Registers
     //Return value is a combination of both registers (3 and 4) which links with the values in 'PianoKeyAddresses'
     function readKeyPress(): number {
@@ -149,11 +177,11 @@ namespace Kitronik_Piano {
     }
 
     /**
-     * Set length of tone produced in ms
+     * Set length of tone produced in ms.
      * @param length eg: 500
      */
     //% subcategory=More
-    //% blockId="set_note_length" block="set note length to %length|ms" icon="\uf001"
+    //% blockId="kitronik_set_note_length" block="set note length to %length|ms" icon="\uf001"
     //% weight=90 blockGap=8
     //% length.min=250 length.max=1000
     export function setNoteLength(length: number): void {
@@ -161,12 +189,12 @@ namespace Kitronik_Piano {
     }
 
     /**
-     * Determines if a piano key is pressed and returns a true or false output
+     * Determines if a piano key is pressed and returns a true or false output.
      * @param key press to be checked
      */
-    //% blockId="key_is_pressed" block="key %key|is pressed"
+    //% blockId="kitronik_key_is_pressed" block="key %key|is pressed"
     //% key.fieldEditor="gridpicker" key.fieldOptions.columns=4
-    //% weight=95 blockGap=8
+    //% weight=100 blockGap=8
     export function keyIsPressed(key: PianoKeyAddresses): boolean {
         let keyPressed = false;
 
@@ -182,11 +210,12 @@ namespace Kitronik_Piano {
     }
 
     /**
-     * Check for a key press and play a linked note
-     * Length of tone can be set using 'set_note_length' block
+     * Check for a key press and play a linked note.
+     * This blocks sets up the piano all in one go, assigning 3 octaves of notes to the keys (ideal for an initial test).
+     * Length of tone can be set using 'kitronik_set_note_length' block.
      */
     //% subcategory=More
-    //% blockId="full_piano_play" block="play note on piano key press" icon="\uf001"
+    //% blockId="kitronik_full_piano_play" block="setup full piano" icon="\uf001"
     //% weight=91 blockGap=8
     export function fullPianoPlay(): void {
         //Checks whether the capacitive touch chip has been setup yet, if not, runs the initPiano function
