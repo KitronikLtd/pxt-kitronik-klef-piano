@@ -41,4 +41,7 @@ Kitronik_Piano.setNoteLength(300)
 
 MIT
 
-## Supported Targets
+## Supported targets
+
+* for PXT/microbit
+(The metadata above is needed for package search.)
