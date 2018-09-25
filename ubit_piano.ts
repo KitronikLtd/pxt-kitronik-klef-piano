@@ -113,6 +113,40 @@ namespace Kitronik_Piano {
             buff2[1] = keyNoiseThreshold
             pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
 
+            //Configure Adjacent Key Suppression (AKS) Groups
+            //AKS Group 1: ALL KEYS
+            buff2[0] = 22
+            buff2[1] = 1
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            buff2[0] = 23
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            buff2[0] = 24
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            buff2[0] = 25
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            buff2[0] = 26
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            buff2[0] = 27
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            buff2[0] = 28
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            buff2[0] = 29
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            buff2[0] = 30
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            buff2[0] = 31
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            buff2[0] = 32
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            buff2[0] = 33
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            buff2[0] = 34
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            buff2[0] = 35
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            buff2[0] = 36
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+
             //Send calibration command
             buff2[0] = 10
             buff2[1] = 1
