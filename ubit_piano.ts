@@ -49,6 +49,8 @@ namespace Kitronik_Piano {
     let buff2 = pins.createBuffer(2);
     let buff3 = pins.createBuffer(5);
     let buff4 = pins.createBuffer(1);
+    let buff5 = pins.createBuffer(16);
+    let buff6 = pins.createBuffer(15);
     let keySensitivity = 8;
     let keyNoiseThreshold = 5;
     let keyRegValue = 0x0000;
@@ -64,7 +66,7 @@ namespace Kitronik_Piano {
         if (pins.digitalReadPin(DigitalPin.P1) == 0) {
             //Reads the chip ID, should be 0x11 (chip ID addr = 0)
             buff[0] = 0
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff, true)
             buff = pins.i2cReadBuffer(CHIP_ADDRESS, 1, false)
             while (buff[0] != 0x11) {
                 buff = pins.i2cReadBuffer(CHIP_ADDRESS, 1, false)
@@ -73,33 +75,33 @@ namespace Kitronik_Piano {
             //Change sensitivity (burst length) of keys 0-14 to 8
             buff2[0] = 54
             buff2[1] = keySensitivity
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 55
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 56
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 57
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 58
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 59
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 60
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 61
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 62
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 63
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 64
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 65
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 66
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 67
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 68
             pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
 
@@ -117,33 +119,33 @@ namespace Kitronik_Piano {
             //AKS Group 1: ALL KEYS
             buff2[0] = 22
             buff2[1] = 1
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 23
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 24
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 25
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 26
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 27
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 28
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 29
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 30
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 31
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 32
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 33
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 34
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 35
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, true)
             buff2[0] = 36
             pins.i2cWriteBuffer(CHIP_ADDRESS, buff2, false)
 
@@ -155,12 +157,12 @@ namespace Kitronik_Piano {
 
         //Read all change status address (General Status addr = 2)
         buff[0] = 2
-        pins.i2cWriteBuffer(CHIP_ADDRESS, buff, false)
+        pins.i2cWriteBuffer(CHIP_ADDRESS, buff, true)
         buff3 = pins.i2cReadBuffer(CHIP_ADDRESS, 5, false)
         //Continue reading change status address until /change pin goes high
         while (pins.digitalReadPin(DigitalPin.P1) == 0) {
             buff[0] = 2
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff, true)
             buff3 = pins.i2cReadBuffer(CHIP_ADDRESS, 5, false)
         }
         initialisedFlag = 1
@@ -196,12 +198,12 @@ namespace Kitronik_Piano {
     //Return value is a combination of both registers (3 and 4) which links with the values in 'PianoKeyAddresses'
     function readKeyPress(): number {
         buff[0] = 2
-        pins.i2cWriteBuffer(CHIP_ADDRESS, buff, false)
+        pins.i2cWriteBuffer(CHIP_ADDRESS, buff, true)
         buff3 = pins.i2cReadBuffer(CHIP_ADDRESS, 5, false)
 
         //Address 3 is the addr for keys 0-7 (this will then auto move onto Address 4 for keys 8-15, both reads stored in buff2)
         buff[0] = 3
-        pins.i2cWriteBuffer(CHIP_ADDRESS, buff, false)
+        pins.i2cWriteBuffer(CHIP_ADDRESS, buff, true)
         buff2 = pins.i2cReadBuffer(CHIP_ADDRESS, 2, false)
 
         //keyRegValue is a 4 byte number which shows which keys are pressed
@@ -258,16 +260,16 @@ namespace Kitronik_Piano {
         }
         if (pins.digitalReadPin(DigitalPin.P1) == 0) {
             buff[0] = 2
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff, true)
             buff3 = pins.i2cReadBuffer(CHIP_ADDRESS, 5, false)
 
             //Address 3 is the addr for keys 0-7
             buff[0] = 3
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff, true)
             buff = pins.i2cReadBuffer(CHIP_ADDRESS, 1, false)
             //Address 4 is the addr for keys 8-15
             buff4[0] = 4
-            pins.i2cWriteBuffer(CHIP_ADDRESS, buff4, false)
+            pins.i2cWriteBuffer(CHIP_ADDRESS, buff4, true)
             buff4 = pins.i2cReadBuffer(CHIP_ADDRESS, 1, false)
 
             if (buff[0] == 0x01) {
