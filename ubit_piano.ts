@@ -169,13 +169,13 @@ namespace Kitronik_Piano {
         initialisedFlag = 1
     }
 
-    /**
-     *
-     */
-    //% shim=Kitronik_Piano::setSilence
-    function setSilence(): void {
-        return;
-    }
+    ///**
+    // *
+    // */
+    ////% shim=Kitronik_Piano::setSilence
+    //function setSilence(): void {
+    //    return;
+    //}
 
     /**
      * Set sensitivity of capacitive touch keys, then initialise the IC.
