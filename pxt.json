@@ -1,6 +1,6 @@
 {
     "name": "pxt-kitronik-klef-piano",
-    "version": "0.0.8",
+    "version": "0.0.10",
     "description": "Blocks for driving the Kitronik micro:bit Piano",
     "license": "MIT",
     "dependencies": {
