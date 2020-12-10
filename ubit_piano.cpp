@@ -1,4 +1,5 @@
 #include "pxt.h"
+#include "Mixer2.h"
 using namespace pxt;
 
 /**
