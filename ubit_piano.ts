@@ -165,7 +165,7 @@ namespace Kitronik_Piano {
             pins.i2cWriteBuffer(CHIP_ADDRESS, buff, true)
             buff3 = pins.i2cReadBuffer(CHIP_ADDRESS, 5, false)
         }
-        setSilence()
+        //setSilence()
         initialisedFlag = 1
     }
 
