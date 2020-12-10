@@ -170,7 +170,7 @@ namespace Kitronik_Piano {
     }
 
     //% shim=Kitronik_Piano::setSilence
-    function setSilence(): void {
+    function setSilence(): number {
         return;
     }
 
