@@ -165,13 +165,9 @@ namespace Kitronik_Piano {
             pins.i2cWriteBuffer(CHIP_ADDRESS, buff, true)
             buff3 = pins.i2cReadBuffer(CHIP_ADDRESS, 5, false)
         }
-        basic.showNumber(setSilence())
+        //Uncomment setSilence command when it becomes available in live MakeCode - fixes V2 micro:but humming noise
+        //music.setSilenceLevel(1000)
         initialisedFlag = 1
-    }
-
-    //% shim=Kitronik_Piano::setSilence
-    function setSilence(): number {
-        return 0;
     }
 
     /**
