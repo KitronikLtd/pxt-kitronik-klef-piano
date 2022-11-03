@@ -2,6 +2,10 @@
 
 Custom blocks for www.kitronik.co.uk/5631 :KLEF Piano for BBC micro:bit
 
+## MakeCode Setup Tutorial
+
+[Get Started with your :KLEF Piano](https://makecode.microbit.org/#tutorial:https://github.com/KitronikLtd/pxt-kitronik-klef-piano/KlefTutorial)
+
 ## To use
 
 The main block for driving the Piano returns a true or false statement after checking whether a particular capacitive touch key has been pressed.
