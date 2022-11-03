@@ -218,7 +218,6 @@ namespace Kitronik_Piano {
      * Set length of tone produced in ms.
      * @param length eg: 500
      */
-    //% subcategory=More
     //% blockId="kitronik_set_note_length" block="set note length to %length|ms" icon="\uf001"
     //% weight=90 blockGap=8
     //% length.min=250 length.max=1000
@@ -252,7 +251,6 @@ namespace Kitronik_Piano {
      * This blocks sets up the piano all in one go, assigning 3 octaves of notes to the keys (ideal for an initial test).
      * Length of tone can be set using 'kitronik_set_note_length' block.
      */
-    //% subcategory=More
     //% blockId="kitronik_full_piano_play" block="setup full piano" icon="\uf001"
     //% weight=91 blockGap=8
     export function fullPianoPlay(): void {
