@@ -2,8 +2,9 @@
 ### @explicitHints true
 
 # Kitronik :KLEF Piano Setup
-## Kitronik :KLEF Piano Setup
-### Kitronik :KLEF Piano Setup @unplugged
+
+## Introduction
+### Introduction @unplugged
 Learn how to use the :KLEF Piano's capacitive touch pads and on-board speaker to create your own piano.
 ![:KLEF Piano icon](https://github.com/KitronikLtd/pxt-kitronik-klef-piano/blob/pxt-tutorial/icon.png)
 
@@ -20,7 +21,6 @@ basic.forever(function () {
 ### Step 2
 If you have a @boardname@ connected, click ``|Download|`` to transfer your code and switch on your :KLEF Piano. Try pressing each of the keys and see what they do.
 
-# Add your own Notes
 ## Add your own Notes
 ### Add your own Notes @unplugged
 To start customising the :KLEF Piano, we need to code the keys to play a tone when pressed.
@@ -82,10 +82,9 @@ basic.forever(function () {
 ### Step 4
 If you have a @boardname@ connected, click ``|Download|`` to transfer your code and switch on your :KLEF Piano. Try pressing each of the keys you programmed.
 
-# Change the piano's settings
 ## Change the piano's settings
 ### Change the piano's settings @unplugged
-Introduction.
+Now we'll have a look at altering the :KLEF Piano's settings.
 
 ### Step 1
 Explain Step 1.
@@ -128,10 +127,9 @@ Kitronik_Piano.setKeyNoiseThreshold(10)
 ### Step 5
 If you have a @boardname@ connected, click ``|Download|`` to transfer your code and switch on your :KLEF Piano. Try pressing each of the keys you programmed.
 
-# Trying different Music blocks
 ## Trying different Music blocks
 ### Trying different Music blocks @unplugged
-Introduction.
+Lastly, we'll take a look at some other Music blocks we might want to use for our :KLEF Piano.
 
 ### Step 1
 Explain Step 1.
