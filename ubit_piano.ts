@@ -253,7 +253,7 @@ namespace Kitronik_Piano {
      * Length of tone can be set using 'kitronik_set_note_length' block.
      */
     //% subcategory=More
-    //% blockId="kitronik_full_piano_play" block="setup full piano" icon="\uf001"
+    //% blockId="kitronik_full_piano_play" block="run full piano" icon="\uf001"
     //% weight=91 blockGap=8
     export function fullPianoPlay(): void {
         //Checks whether the capacitive touch chip has been setup yet, if not, runs the initPiano function
