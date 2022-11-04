@@ -38,7 +38,7 @@ To start customising the :KLEF Piano, we need to code the keys to play a tone wh
 ![:KLEF Piano icon](https://github.com/KitronikLtd/pxt-kitronik-klef-piano/assets/icon.png)
 
 ### Step 1
-Start by removing the ``||Kitronik_Piano.setup full piano||`` block. Next add an ``||logic:if then||`` block into the ``||basic:forever||`` loop. As the condition for the ``||logic:if then||`` let's add the ``||Kitronik_Piano.key K9 is pressed||`` block to check when the C key is pressed. Inside the ``||logic:if||`` we can then add the tone we want to play from the :KLEF speaker using ``||music:play tone Middle C for 1 beat||``.
+Start by removing the ``||Kitronik_Piano.setup full piano||`` block and the ``||Kitronik_Piano.set note length 250 ms||`` block. Next add an ``||logic:if then||`` block into the ``||basic:forever||`` loop. As the condition for the ``||logic:if then||`` let's add the ``||Kitronik_Piano.key K9 is pressed||`` block to check when the C key is pressed. Inside the ``||logic:if||`` we can then add the tone we want to play from the :KLEF speaker using ``||music:play tone Middle C for 1 beat||``.
 
 #### ~ tutorialhint
 ```blocks
