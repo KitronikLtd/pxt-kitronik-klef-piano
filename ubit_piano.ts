@@ -190,6 +190,7 @@ namespace Kitronik_Piano {
      */
     //% blockId="kitronik_set_noise_threshold" block="set noise threshold to %noiseFactor" icon="\uf001"
     //% weight=90 blockGap=8
+    //% subcategory=More
     //% noiseThreshold.min=1 noiseThreshold.max=63
     export function setKeyNoiseThreshold(noiseThreshold: number): void {
         keyNoiseThreshold = noiseThreshold
@@ -252,7 +253,6 @@ namespace Kitronik_Piano {
      * This blocks sets up the piano all in one go, assigning 3 octaves of notes to the keys (ideal for an initial test).
      * Length of tone can be set using 'kitronik_set_note_length' block.
      */
-    //% subcategory=More
     //% blockId="kitronik_full_piano_play" block="run full piano" icon="\uf001"
     //% weight=91 blockGap=8
     export function fullPianoPlay(): void {
