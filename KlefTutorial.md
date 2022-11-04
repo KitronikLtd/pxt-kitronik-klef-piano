@@ -175,12 +175,6 @@ Let's add another ``||logic:if then||`` block to the ``||basic:forever||`` loop 
 #### ~ tutorialhint
 ```blocks
 basic.forever(function () {
-    if (Kitronik_Piano.keyIsPressed(Kitronik_Piano.PianoKeyAddresses.PIANO_ID_KEY_K12)) {
-        music.playMelody("C5 C B D A E G F ", 120)
-    }
-    if (Kitronik_Piano.keyIsPressed(Kitronik_Piano.PianoKeyAddresses.PIANO_ID_KEY_K13)) {
-        music.startMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once)
-    }
     if (Kitronik_Piano.keyIsPressed(Kitronik_Piano.PianoKeyAddresses.PIANO_ID_KEY_K14)) {
         music.playSoundEffect(music.builtinSoundEffect(soundExpression.giggle), SoundExpressionPlayMode.UntilDone)
     }
@@ -193,12 +187,6 @@ Now we are going to add one more ``||logic:if then||`` to the ``||basic:forever|
 #### ~ tutorialhint
 ```blocks
 basic.forever(function () {
-    if (Kitronik_Piano.keyIsPressed(Kitronik_Piano.PianoKeyAddresses.PIANO_ID_KEY_K12)) {
-        music.playMelody("C5 C B D A E G F ", 120)
-    }
-    if (Kitronik_Piano.keyIsPressed(Kitronik_Piano.PianoKeyAddresses.PIANO_ID_KEY_K13)) {
-        music.startMelody(music.builtInMelody(Melodies.Dadadadum), MelodyOptions.Once)
-    }
     if (Kitronik_Piano.keyIsPressed(Kitronik_Piano.PianoKeyAddresses.PIANO_ID_KEY_K14)) {
         music.playSoundEffect(music.builtinSoundEffect(soundExpression.giggle), SoundExpressionPlayMode.UntilDone)
     }
