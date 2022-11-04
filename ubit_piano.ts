@@ -166,7 +166,7 @@ namespace Kitronik_Piano {
             buff3 = pins.i2cReadBuffer(CHIP_ADDRESS, 5, false)
         }
         //Uncomment setSilence command when it becomes available in live MakeCode - fixes V2 micro:but humming noise
-        //music.setSilenceLevel(1000)
+        music.setSilenceLevel(0)
         initialisedFlag = 1
     }
 
