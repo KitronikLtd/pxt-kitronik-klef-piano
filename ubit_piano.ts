@@ -166,7 +166,7 @@ namespace Kitronik_Piano {
             buff3 = pins.i2cReadBuffer(CHIP_ADDRESS, 5, false)
         }
         //Uncomment setSilence command when it becomes available in live MakeCode - fixes V2 micro:but humming noise
-        //music.setSilenceLevel(1000)
+        music.setSilenceLevel(0)
         initialisedFlag = 1
     }
 
@@ -219,7 +219,6 @@ namespace Kitronik_Piano {
      * Set length of tone produced in ms.
      * @param length eg: 500
      */
-    //% subcategory=More
     //% blockId="kitronik_set_note_length" block="set note length to %length|ms" icon="\uf001"
     //% weight=90 blockGap=8
     //% length.min=250 length.max=1000
