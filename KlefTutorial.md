@@ -140,8 +140,22 @@ Next we can adjust the sensitivity of the capactivie touch keys on the :KLEF Pia
 
 #### ~ tutorialhint
 ```blocks
-music.setVolume(50)
+let volume = 100
 Kitronik_Piano.setKeySensitivity(16)
+basic.forever(function () {
+    if (Kitronik_Piano.keyIsPressed(Kitronik_Piano.PianoKeyAddresses.PIANO_ID_KEY_K0)) {
+        if (volume < 250) {
+            volume += 50
+        }
+        music.setVolume(volume)
+    }
+    if (Kitronik_Piano.keyIsPressed(Kitronik_Piano.PianoKeyAddresses.PIANO_ID_KEY_K8)) {
+        if (volume > 0) {
+            volume += -50
+        }
+        music.setVolume(volume)
+    }
+})
 ```
 
 ### Step 4
