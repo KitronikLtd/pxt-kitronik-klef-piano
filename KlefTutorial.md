@@ -6,7 +6,7 @@
 ## Introduction
 ### Introduction @unplugged
 Learn how to use the :KLEF Piano's capacitive touch pads and on-board speaker to create your own piano.
-![:KLEF Piano icon](https://github.com/KitronikLtd/pxt-kitronik-klef-piano/assets/icon.png)
+![:KLEF Piano icon](https://github.com/KitronikLtd/pxt-kitronik-klef-piano/blob/master/assets/icon.png)
 
 ### Step 1
 The quickest way to get started with the :KLEF Piano is to add the ``||Kitronik_Piano.run full piano||`` block to the ``||basic:forever||`` loop.
